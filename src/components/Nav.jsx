@@ -101,20 +101,36 @@ const Navigation = () => {
         </Arrow>
         <Links>
           <ActiveNavLink to='/'>Home</ActiveNavLink>
-          <ActiveNavLink to='/register'>Register</ActiveNavLink>
-          <ActiveNavLink to='/login'>Login</ActiveNavLink>
+          {!currentUser?.user?.emails[0] && (
+            <>
+              <ActiveNavLink to='/register'>Register</ActiveNavLink>
+              <ActiveNavLink to='/login'>Login</ActiveNavLink>
+            </>
+          )}
           <ActiveNavLink to='/about'>About</ActiveNavLink>
           <ActiveNavLink to='/profile'>Profile</ActiveNavLink>
         </Links>
-        {currentUser?.user?.emails[0] && (
-          <UserInfo>
-            <p>
-              You are logged in as:
-              <br /> <b>{currentUser.user.emails[0].email}</b>
-            </p>
-            <button onClick={logout}>Logout</button>
-          </UserInfo>
-        )}
+        <UserInfo>
+          {currentUser?.user?.emails[0] ? (
+            <>
+              <p>
+                You are logged in as:
+                <br /> <b>{currentUser.user.emails[0].email}</b>
+              </p>
+              <button onClick={logout}>Logout</button>
+            </>
+          ) : (
+            <>
+              <p>
+                You are not logged in
+                <br />
+              </p>
+              <Link to='/login'>
+                <button>Log in</button>
+              </Link>
+            </>
+          )}
+        </UserInfo>
       </Navbar>
     </>
   );

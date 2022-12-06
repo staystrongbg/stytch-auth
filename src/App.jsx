@@ -36,6 +36,13 @@ h2{
 h3{
   font-size: 2rem;
 }
+button{
+  padding: 5px 10px;
+  border:2px solid #bbb;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size:1rem;
+}
 `;
 
 export const PageWrapper = styled.div`

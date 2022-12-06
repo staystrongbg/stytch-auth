@@ -47,7 +47,16 @@ const Login = () => {
           required
         />
         <button onClick={login}>Login</button>
-        <button onClick={resetPassword}>Reset Password</button>
+        <button
+          style={{
+            background: 'transparent',
+            outline: 'none',
+            border: 'none',
+          }}
+          onClick={resetPassword}
+        >
+          Reset Password
+        </button>
       </InputContainer>
     </>
   );
